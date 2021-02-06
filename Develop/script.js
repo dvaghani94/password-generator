@@ -3,9 +3,9 @@ var generateBtn = document.querySelector("#generate");
 
 // Arrays for special characters, for uppercase, lowercase, and numbers
 var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "?", "/", "<", ">"];
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] ;
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] ;
-var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] ; 
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
 
 // Function that prompts user for number of characters for password.
 
@@ -31,11 +31,9 @@ generateBtn.addEventListener("click", function() {
         numInput = confirm("Would you like to use numbers?");
         lowerCaseInput = confirm("Would you like to use lowercase letters?");
         upperCaseInput = confirm("Would you like to use uppercase letters?");
-      }
-  
-    
+      }   
 // we now need an object to store the user input- meaning the length, what characters will be used in password
-  var passOutput = {
+    var passOutput = {
     passLength: length,
     charOutput: charInput,
     numericOutput: numInput,
@@ -43,14 +41,17 @@ generateBtn.addEventListener("click", function() {
     upperCaseOutput: upperCaseInput
   }
 
-// Returning object with user user choice.
-    return passOutput;
+// Returning object with user choice.
+    return passOutput; 
+  
+  }); 
 
+  function writePassword() {
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword(); 
-  var randomPassword = [];
+    var password = generatePassword();  
+    console.log(password)
+
+    var randomPassword = [];
       console.log(randomPassword)
     
     if (password.charOutput) {
@@ -74,28 +75,23 @@ function writePassword() {
       }
     }
 
-    var passwordText = document.querySelector("#password"); {
-      passwordText.value = password;
-      var finalOutput = [];
+  // Write password to the #password input
+      var passwordText = document.querySelector("#password");
 
   // Function to randomize the letters inside that we can give the password.
     
-    for (let i = 0; i < password.length; ++i) {
-      var randomPicker = Math.floor(Math.random() * Math.floor(randomPassword.length));
-        finalOutput.push(randomPassword[randomPicker])
-          console.log(finalOutput)
+    for (var i = 0; i < password.length; ++i) {
+      var randomPassword = Math.floor(Math.random() * Math.floor(randomPassword.length));
+        passwordText.push(randomPassword)
     }
-    var output = finalOutput.join("");
-    console.log(output)
+
+
+    document.getElementById("password").value = generatePassword
   }
-  var allCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+?/<>";
-  var password = "";
-  for(var i = 0; i < passOutput; i++) {
-    password = password + numeric + lowerCase + upperCase + specialCharacters.charAt(Math.floor(Math.random() * Math.floor(allCharacters.length -1)));
-  }
-  document.getElementById("password").textContent = output;
-}
-});
+
+  
+    
+
 
 
 
