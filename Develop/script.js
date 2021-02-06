@@ -7,7 +7,7 @@ var numbers = "0123456789".split();
 
 
 generateBtn.addEventListener("click", function() {
-  var passLength = prompt ("How many characters would you like your password to contain?", "i");  
+  var passLength = prompt ("How many characters would you like your password to contain?");  
     if (passLength < 8) {
      alert('Password length must be between 8 - 128 characters');
      passLength = prompt ("Please choose a number more than 8 and less than 128 characters: ");
@@ -18,6 +18,13 @@ generateBtn.addEventListener("click", function() {
       var lowerCaseInput = confirm("Would you like to use lowercase letters?");
       var upperCaseInput = confirm("Would you like to use uppercase letters?");
      } 
+      if (!charInput && !numInput && !lowerCaseInput && !upperCaseInput) {
+        alert('You must select at least one character type!');
+        charInput = confirm("Would you like to use special characters?");
+        numInput = confirm("Would you like to use numbers?");
+        lowerCaseInput = confirm("Would you like to use lowercase letters?");
+        upperCaseInput = confirm("Would you like to use uppercase letters?");
+      }
     });
     
   
@@ -39,33 +46,9 @@ function writePassword() {
       caseArray.push(upperCase);
     }
 
+   passwordText.value = password;
   }
-
-   // for (var i = 0, i<passLength, i++) {
-    var randomChar;
-    var randomNum;
-    var randomUpperCase;
-    var randomLowerCase;
-
-  randomNum = parseInt(Math.floor(Math.random() * caseArray.length));
-  randomChar = caseArray[randomNum];
-  randomLowerCase = Math.floor(Math.random() * selectNumArray.length);
-  randomUpperCase = selectedCharArray[randomLowerCase];
-
-  passwordString += randomUpperCase;
-
-  }
-
-   // passwordText.value = password;
-
-// }
-
-
-
-
-
-
-
+}
 
 // an array for a different choice of characters
   // an array for special characters, for uppercase, lowercase, and numbers
@@ -97,8 +80,3 @@ function writePassword() {
 
   // Write a function that allows us to propt the user. Should be written in a function. 
 // In that function we are going to ask the user how many words we want the password to be. 
-
-
-
-// .join 
-
