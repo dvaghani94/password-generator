@@ -26,6 +26,13 @@ generateBtn.addEventListener("click", function() {
         upperCaseInput = confirm("Would you like to use uppercase letters?");
       }
     });
+
+    var userChoice = {
+      charInput = true,
+      numInput = true,
+      lowerCaseInput = true,
+      upperCaseInput = true
+    }
     
   
   
