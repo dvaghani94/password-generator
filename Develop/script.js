@@ -1,23 +1,30 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+// Arrays for special characters, for uppercase, lowercase, and numbers
 var specialCharacters = "!@#$%^&*()_+?/\~<>".split();
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split();
 var lowerCase = "abcdefghijklmnopqrstuvwxyz".split();
 var numbers = "0123456789".split(); 
 
+// Function that prompts user for number of characters for password.
 
 generateBtn.addEventListener("click", function() {
   var passLength = prompt ("How many characters would you like your password to contain?");  
+
+// Confirming user choice is between 8-128 characters.
     if (passLength < 8) {
      alert('Password length must be between 8 - 128 characters');
      passLength = prompt ("Please choose a number more than 8 and less than 128 characters: ");
     }
+// Prompts for use to choose which characters they want. Confirm prompt for all 4 characters.
       if (passLength >= 8) {
       var charInput = confirm("Would you like to use special characters?");
       var numInput = confirm("Would you like to use numbers?");
       var lowerCaseInput = confirm("Would you like to use lowercase letters?");
       var upperCaseInput = confirm("Would you like to use uppercase letters?");
      } 
+// Confirming user picked at least one character type for password.
       if (!charInput && !numInput && !lowerCaseInput && !upperCaseInput) {
         alert('You must select at least one character type!');
         charInput = confirm("Would you like to use special characters?");
@@ -25,17 +32,20 @@ generateBtn.addEventListener("click", function() {
         lowerCaseInput = confirm("Would you like to use lowercase letters?");
         upperCaseInput = confirm("Would you like to use uppercase letters?");
       }
-    });
-
-    var userChoice = {
-      charInput = true,
-      numInput = true,
-      lowerCaseInput = true,
-      upperCaseInput = true
-    }
+  
     
-  
-  
+// we now need an object to store the user input- meaning the length, what characters will be used in password
+  var passOutput = {
+    passLength = length,
+    charInput = specialCharacters,
+    numInput = numbers,
+    lowerCaseInput = lowerCase,
+    upperCaseInput = upperCase
+  }
+    return passOutput;
+});
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -53,24 +63,21 @@ function writePassword() {
       caseArray.push(upperCase);
     }
 
+    document.getElementById("password").value = [];
+
+    for(var i = 0, i < enter, i++) {
+
+    }
+
    passwordText.value = password;
-  }
+
+  }  
+    for(var j = 0, j < length, j++);
+
 }
 
 // an array for a different choice of characters
-  // an array for special characters, for uppercase, lowercase, and numbers
-
-
-  //write a function that allows us to prompt the user. should be written in a function.
-  // in that function we are going to ask the user how many words we want the password to be.
-
-  //after that prompt, we need a check to make sure they chose between 8-128 characters
-
-  //next we will prompt them for what characters they want. will be a confirm prompt for all 4.
-
-  // need to make sure that the user picked at least one character type for password.
-
-  // we now need an object to store the user input- meaning the length, what characters will be used in password
+  
 
   // we will now return the object- we will now know what will be the possible choices.
 
