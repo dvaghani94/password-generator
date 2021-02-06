@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 // Arrays for special characters, for uppercase, lowercase, and numbers
-var specialCharacters = "!@#$%^&*()_+?/\~<>".split();
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split();
-var lowerCase = "abcdefghijklmnopqrstuvwxyz".split();
-var numbers = "0123456789".split(); 
+var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "?", "/", "<", ">"];
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] ;
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] ;
+var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] ; 
 
 // Function that prompts user for number of characters for password.
 
@@ -36,52 +36,76 @@ generateBtn.addEventListener("click", function() {
     
 // we now need an object to store the user input- meaning the length, what characters will be used in password
   var passOutput = {
-    passLength = length,
-    charInput = specialCharacters,
-    numInput = numbers,
-    lowerCaseInput = lowerCase,
-    upperCaseInput = upperCase
+    passLength: length,
+    charOutput: charInput,
+    numericOutput: numInput,
+    lowerCaseOutput: lowerCaseInput,
+    upperCaseOutput: upperCaseInput
   }
+
+// Returning object with user user choice.
     return passOutput;
-});
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password"); {
-    if (charInput == true) {
-      caseArray.push(specialCharacters);
+  var password = generatePassword(); 
+  var randomPassword = [];
+      console.log(randomPassword)
+    
+    if (password.charOutput) {
+      for(i = 0; i < specialCharacters.length; ++i) {
+        randomPassword.push(specialCharacters[i]);
+      }
     }
-    if (numInput == true) {
-      caseArray.push(numbers);
+    if (password.numericOutput) {
+      for(i = 0; i < numeric.length; ++i) {
+        randomPassword.push(numeric[i]);
+      }
     }
-    if (lowerCaseInput == true) {
-      caseArray.push(lowerCase);
+    if (password.lowerCaseOutput) {
+      for(i = 0; i < lowerCase.length; ++i) {
+        randomPassword.push(lowerCase[i]);
+      }
     }
-    if (upperCaseInput == true) {
-      caseArray.push(upperCase);
-    }
-
-    document.getElementById("password").value = [];
-
-    for(var i = 0, i < enter, i++) {
-
+    if (password.upperCaseOutput) {
+      for(i = 0; i < upperCase.length; ++i) {
+        randomPassword.push(upperCase[i]);
+      }
     }
 
-   passwordText.value = password;
+    var passwordText = document.querySelector("#password"); {
+      passwordText.value = password;
+      var finalOutput = [];
 
-  }  
-    for(var j = 0, j < length, j++);
-
+  // Function to randomize the letters inside that we can give the password.
+    
+    for (let i = 0; i < password.length; ++i) {
+      var randomPicker = Math.floor(Math.random() * Math.floor(randomPassword.length));
+        finalOutput.push(randomPassword[randomPicker])
+          console.log(finalOutput)
+    }
+    var output = finalOutput.join("");
+    console.log(output)
+  }
+  var allCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+?/<>";
+  var password = "";
+  for(var i = 0; i < passOutput; i++) {
+    password = password + numeric + lowerCase + upperCase + specialCharacters.charAt(Math.floor(Math.random() * Math.floor(allCharacters.length -1)));
+  }
+  document.getElementById("password").textContent = output;
 }
+});
+
+
+
+
+
 
 // an array for a different choice of characters
   
 
-  // we will now return the object- we will now know what will be the possible choices.
-
-  // after we have user inputs, we want to write a function to randomize the letters inside that we can give the password (will  use math.randomize)
+  
 
   // then we will create another function- make an array with the results, an array for possible characters,
   // and set an array for gauranteed characters (characters gauranteed for password)
@@ -90,7 +114,3 @@ function writePassword() {
   // once we push into a new array (results array), using join we will take the characters from results array and turn into a string
 
   //after we turn into a string, we write the password to the page using (.value)
-
-
-  // Write a function that allows us to propt the user. Should be written in a function. 
-// In that function we are going to ask the user how many words we want the password to be. 
