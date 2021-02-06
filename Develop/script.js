@@ -3,16 +3,16 @@ var generateBtn = document.querySelector("#generate");
 var specialCharacters = "!@#$%^&*()_+?/\~<>".split();
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split();
 var lowerCase = "abcdefghijklmnopqrstuvwxyz".split();
-var numbers = "0123456789".split();
+var numbers = "0123456789".split(); 
 
 
 generateBtn.addEventListener("click", function() {
-  var passLength = prompt ("How many characters would you like your password to contain?");  
+  var passLength = prompt ("How many characters would you like your password to contain?", "i");  
     if (passLength < 8) {
-     alert('Password length must be between 8-128 characters');
-     return ; 
+     alert('Password length must be between 8 - 128 characters');
+     passLength = prompt ("Please choose a number more than 8 and less than 128 characters: ");
     }
-     else {
+      if (passLength >= 8) {
       var charInput = confirm("Would you like to use special characters?");
       var numInput = confirm("Would you like to use numbers?");
       var lowerCaseInput = confirm("Would you like to use lowercase letters?");
@@ -41,7 +41,7 @@ function writePassword() {
 
   }
 
-  for (var i = 0, i<passLength, i++) {
+   // for (var i = 0, i<passLength, i++) {
     var randomChar;
     var randomNum;
     var randomUpperCase;
@@ -53,12 +53,12 @@ function writePassword() {
   randomUpperCase = selectedCharArray[randomLowerCase];
 
   passwordString += randomUpperCase;
-  
+
   }
 
-  passwordText.value = password;
+   // passwordText.value = password;
 
-}
+// }
 
 
 
