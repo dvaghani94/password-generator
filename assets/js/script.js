@@ -6,6 +6,7 @@ var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", 
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
+var passArray = [{uppercase}, {lowercase}, {numeric}, {specialCharacters}];
 // Function that prompts user for number of characters for password.
 
 generateBtn.addEventListener("click", function() {
@@ -38,13 +39,34 @@ generateBtn.addEventListener("click", function() {
     numericOutput: numInput,
     lowerCaseOutput: lowerCaseInput,
     upperCaseOutput: upperCaseInput
-  } 
-    console.log(passOutput)
+    };
+
+    console.log(passOutput);
     generatePassword(passOutput);
+      function generatePassword(password) {
 
-  });
+      var randomPassword = [];
+      console.log(randomPassword);
 
-    function generatePassword(password) {
+    function upperCaseOutput() {
+      return String.fromCharCode(Math.floor(Math.random() * 26) +65);
+    }
+  
+    function lowerCaseOutput() {
+      return String.fromCharCode(Math.floor(Math.random() * 26) +97);
+    }
+  
+    function numericOutput() {
+      return String.fromCharCode(Math.floor(Math.random() * 10) +48);
+    }
+    function charOutput() {
+      const symbols = '!@#$%^&*(){}[]=<>/,.';
+      return symbols[Math.floor(Math.random() * symbols.length)]
+    }
+
+     console.log(passOutput);
+    generatePassword(passOutput);
+      function generatePassword(password) {
 
       var randomPassword = [];
       console.log(randomPassword);
@@ -69,26 +91,13 @@ generateBtn.addEventListener("click", function() {
         randomPassword.push(upperCase[i]);
       }
     }
-
+    console.log(randomPassword)
+    document.getElementById("password").value = randomPassword
+  }
+    
 
   // Function to randomize the letters inside that we can give the password.
     
     for (var i = 0; i < password.length; ++i) {
-      var randomPassword = Math.floor(Math.random() * Math.floor(randomPassword.length));
-        passwordText.push(randomPassword)
+      var randomPassword = Math.floor(Math.random() * Math.floor(randomPassword.length-1));
     }
-
-    console.log(randomPassword)
-    document.getElementById("password").value = randomPassword
-  
-  }
-  
-
-
-    
-
-
-
-
-
-
