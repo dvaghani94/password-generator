@@ -6,7 +6,6 @@ var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", 
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
-
 // Function that prompts user for number of characters for password.
 
 generateBtn.addEventListener("click", function() {
@@ -34,25 +33,21 @@ generateBtn.addEventListener("click", function() {
       }   
 // we now need an object to store the user input- meaning the length, what characters will be used in password
     var passOutput = {
-    passLength: length,
+    passLength,
     charOutput: charInput,
     numericOutput: numInput,
     lowerCaseOutput: lowerCaseInput,
     upperCaseOutput: upperCaseInput
-  }
+  } 
+    console.log(passOutput)
+    generatePassword(passOutput);
 
-// Returning object with user choice.
-    return passOutput; 
-  
-  }); 
+  });
 
-  function writePassword() {
+    function generatePassword(password) {
 
-    var password = generatePassword();  
-    console.log(password)
-
-    var randomPassword = [];
-      console.log(randomPassword)
+      var randomPassword = [];
+      console.log(randomPassword);
     
     if (password.charOutput) {
       for(i = 0; i < specialCharacters.length; ++i) {
@@ -75,8 +70,6 @@ generateBtn.addEventListener("click", function() {
       }
     }
 
-  // Write password to the #password input
-      var passwordText = document.querySelector("#password");
 
   // Function to randomize the letters inside that we can give the password.
     
@@ -85,11 +78,13 @@ generateBtn.addEventListener("click", function() {
         passwordText.push(randomPassword)
     }
 
-
-    document.getElementById("password").value = generatePassword
-  }
-
+    console.log(randomPassword)
+    document.getElementById("password").value = randomPassword
   
+  }
+  
+
+
     
 
 
@@ -97,16 +92,3 @@ generateBtn.addEventListener("click", function() {
 
 
 
-
-// an array for a different choice of characters
-  
-
-  
-
-  // then we will create another function- make an array with the results, an array for possible characters,
-  // and set an array for gauranteed characters (characters gauranteed for password)
-
-  //then we will create a loop that goes through the results array - (need to look up push and join)
-  // once we push into a new array (results array), using join we will take the characters from results array and turn into a string
-
-  //after we turn into a string, we write the password to the page using (.value)
