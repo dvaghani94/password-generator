@@ -1,3 +1,6 @@
+// const { writeFile } = require("fs");
+// const { restoreDefaultPrompts } = require("inquirer");
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -104,19 +107,22 @@ function generatePassword() {
       guaranteedOptions.push(choiceInde);
       console.log(choiceInde)
     }
-    var passwordText = guaranteedOptions.join('');
-    writePassword(passwordText);
-    console.log(passwordText)
-    return passwordText;
+    return guaranteedOptions.join(' ');
+    // var passwordtext = guaranteedOptions.join('');
+    // // writePassword(passwordText);
+    // console.log(passwordtext);
+    // var passwordText = document.getElementById("#password")
+    //  passwordText.value = passwordtext;
+    //  return "working"
   }
 
   // Write password to the #password input
-function writePassword(passwordText) {
-  var passwordText = document.getElementById("#password")
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  var passwordItself = generatePassword();
+
+  passwordText.value = passwordItself
   } 
 
   // Add event listener to generate button
-  generateBtn.addEventListener("click", function () {
-    passwordText = generatePassword();
-    passwordText = document.getElementById("password")
-  });
+  generateBtn.addEventListener("click", writePassword);
